@@ -4,8 +4,9 @@ var sequelize = new Sequelize('databse', 'user', 'password', {
     dialect: 'postgres',
     port: 5432,
     dialectOptions: {
-        ssl: true
-    }
+        ssl: { rejectUnauthorized: false }
+    },
+    query: { raw: true }
 });
 
 const Employee = sequelize.define('employee', {
