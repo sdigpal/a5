@@ -235,3 +235,14 @@ dataservice.initialize()
 }).catch (() => {
     console.log('promises unfulfilled');
 });
+
+app.post("/register-user", upload.single("photo"), (req, res) => {
+    const formData = req.body;
+    const formFile = req.file;
+  
+    const dataReceived = "Your submission was received:<br/><br/>" +
+      "Your form data was:<br/>" + JSON.stringify(formData) + "<br/><br/>" +
+      "Your File data was:<br/>" + JSON.stringify(formFile) +
+      "<br/><p>This is the image you sent:<br/><img src='/photos/" + formFile.filename + "'/>";
+    res.send(dataReceived);
+  });
