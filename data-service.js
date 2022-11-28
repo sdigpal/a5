@@ -9,6 +9,15 @@ var sequelize = new Sequelize('databse', 'user', 'password', {
     query: { raw: true }
 });
 
+sequelize
+    .authenticate()
+    .then(function() {
+        console.log('Connection has been established successfully.');
+    })
+    .catch(function(err) {
+        console.log('Unable to connect to the database:', err);
+    });
+
 const Employee = sequelize.define('employee', {
     employeeNum: {
         type:Sequelize.INTEGER,
