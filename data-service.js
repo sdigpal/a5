@@ -1,22 +1,3 @@
-const Sequelize = require('sequelize');
-var sequelize = new Sequelize('berxvwgt', 'berxvwgt', '31i6hIv2JGXtNytTiW83bV_prG7PERs1', {
-    host: 'peanut.db.elephantsql.com',
-    dialect: 'postgres',
-    port: 5432,
-    dialectOptions: {
-        ssl: { rejectUnauthorized: false }
-    },
-    query: { raw: true }
-});
-
-sequelize
-    .authenticate()
-    .then(function() {
-        console.log('Connection has been established successfully.');
-    })
-    .catch(function(err) {
-        console.log('Unable to connect to the database:', err);
-    });
 
 const Employee = sequelize.define('employee', {
     employeeNum: {
