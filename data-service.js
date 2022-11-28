@@ -1,3 +1,13 @@
+const Sequelize = require('sequelize');
+var sequelize = new Sequelize('databse', 'user', 'password', {
+    host: 'host',
+    dialect: 'postgres',
+    port: 5432,
+    dialectOptions: {
+        ssl: { rejectUnauthorized: false }
+    },
+    query: { raw: true }
+});
 
 const Employee = sequelize.define('employee', {
     employeeNum: {
